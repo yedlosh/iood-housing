@@ -64,11 +64,29 @@
     <Compile Include="Forms\DashboardView.Designer.cs">
       <DependentUpon>DashboardView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\HouseEditView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HouseEditView.Designer.cs">
+      <DependentUpon>HouseEditView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ListSearchView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ListSearchView.Designer.cs">
       <DependentUpon>ListSearchView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OrderDetailView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OrderDetailView.Designer.cs">
+      <DependentUpon>OrderDetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OrderEditView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OrderEditView.Designer.cs">
+      <DependentUpon>OrderEditView.cs</DependentUpon>
     </Compile>
     <Compile Include="Presenters\CustomerEditPresenter.cs" />
     <Compile Include="Program.cs" />
@@ -79,8 +97,17 @@
     <EmbeddedResource Include="Forms\DashboardView.resx">
       <DependentUpon>DashboardView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HouseEditView.resx">
+      <DependentUpon>HouseEditView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ListSearchView.resx">
       <DependentUpon>ListSearchView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OrderDetailView.resx">
+      <DependentUpon>OrderDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OrderEditView.resx">
+      <DependentUpon>OrderEditView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -43,10 +43,10 @@
             this.lbl_factoryStatus = new System.Windows.Forms.Label();
             this.lbl_out_factoryStatus = new System.Windows.Forms.Label();
             this.lbl_orders = new System.Windows.Forms.Label();
-            this.lbl_out_scheduled = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbl_out_ordersScheduled = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbl_orders_scheduled = new System.Windows.Forms.Label();
+            this.lbl_orders_until = new System.Windows.Forms.Label();
+            this.lbl_orders_scheduled_out = new System.Windows.Forms.Label();
+            this.lbl_orders_until_out = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_queueDash)).BeginInit();
             this.SuspendLayout();
@@ -175,55 +175,55 @@
             this.lbl_orders.TabIndex = 4;
             this.lbl_orders.Text = "Orders";
             // 
-            // lbl_out_scheduled
+            // lbl_orders_scheduled
             // 
-            this.lbl_out_scheduled.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_out_scheduled.AutoSize = true;
-            this.lbl_out_scheduled.Location = new System.Drawing.Point(337, 358);
-            this.lbl_out_scheduled.Name = "lbl_out_scheduled";
-            this.lbl_out_scheduled.Size = new System.Drawing.Size(61, 13);
-            this.lbl_out_scheduled.TabIndex = 5;
-            this.lbl_out_scheduled.Text = "Scheduled:";
+            this.lbl_orders_scheduled.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_orders_scheduled.AutoSize = true;
+            this.lbl_orders_scheduled.Location = new System.Drawing.Point(337, 358);
+            this.lbl_orders_scheduled.Name = "lbl_orders_scheduled";
+            this.lbl_orders_scheduled.Size = new System.Drawing.Size(61, 13);
+            this.lbl_orders_scheduled.TabIndex = 5;
+            this.lbl_orders_scheduled.Text = "Scheduled:";
             // 
-            // label1
+            // lbl_orders_until
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(367, 371);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Until:";
+            this.lbl_orders_until.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_orders_until.AutoSize = true;
+            this.lbl_orders_until.Location = new System.Drawing.Point(367, 371);
+            this.lbl_orders_until.Name = "lbl_orders_until";
+            this.lbl_orders_until.Size = new System.Drawing.Size(31, 13);
+            this.lbl_orders_until.TabIndex = 6;
+            this.lbl_orders_until.Text = "Until:";
             // 
-            // lbl_out_ordersScheduled
+            // lbl_orders_scheduled_out
             // 
-            this.lbl_out_ordersScheduled.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_out_ordersScheduled.AutoSize = true;
-            this.lbl_out_ordersScheduled.Location = new System.Drawing.Point(405, 358);
-            this.lbl_out_ordersScheduled.Name = "lbl_out_ordersScheduled";
-            this.lbl_out_ordersScheduled.Size = new System.Drawing.Size(13, 13);
-            this.lbl_out_ordersScheduled.TabIndex = 7;
-            this.lbl_out_ordersScheduled.Text = "0";
+            this.lbl_orders_scheduled_out.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_orders_scheduled_out.AutoSize = true;
+            this.lbl_orders_scheduled_out.Location = new System.Drawing.Point(405, 358);
+            this.lbl_orders_scheduled_out.Name = "lbl_orders_scheduled_out";
+            this.lbl_orders_scheduled_out.Size = new System.Drawing.Size(13, 13);
+            this.lbl_orders_scheduled_out.TabIndex = 7;
+            this.lbl_orders_scheduled_out.Text = "0";
             // 
-            // label3
+            // lbl_orders_until_out
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(405, 371);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "31/12/2015";
+            this.lbl_orders_until_out.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_orders_until_out.AutoSize = true;
+            this.lbl_orders_until_out.Location = new System.Drawing.Point(405, 371);
+            this.lbl_orders_until_out.Name = "lbl_orders_until_out";
+            this.lbl_orders_until_out.Size = new System.Drawing.Size(65, 13);
+            this.lbl_orders_until_out.TabIndex = 8;
+            this.lbl_orders_until_out.Text = "31/12/2015";
             // 
             // DashboardView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(482, 396);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.lbl_out_ordersScheduled);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lbl_out_scheduled);
+            this.Controls.Add(this.lbl_orders_until_out);
+            this.Controls.Add(this.lbl_orders_scheduled_out);
+            this.Controls.Add(this.lbl_orders_until);
+            this.Controls.Add(this.lbl_orders_scheduled);
             this.Controls.Add(this.lbl_orders);
             this.Controls.Add(this.lbl_out_factoryStatus);
             this.Controls.Add(this.lbl_factoryStatus);
@@ -258,10 +258,10 @@
         private System.Windows.Forms.Label lbl_factoryStatus;
         private System.Windows.Forms.Label lbl_out_factoryStatus;
         private System.Windows.Forms.Label lbl_orders;
-        private System.Windows.Forms.Label lbl_out_scheduled;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lbl_out_ordersScheduled;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_orders_scheduled;
+        private System.Windows.Forms.Label lbl_orders_until;
+        private System.Windows.Forms.Label lbl_orders_scheduled_out;
+        private System.Windows.Forms.Label lbl_orders_until_out;
     }
 }
 
