@@ -46,12 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Entities\Customer.cs" />
     <Compile Include="Forms\CustomerEditView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +65,7 @@
     <Compile Include="Forms\HouseEditView.Designer.cs">
       <DependentUpon>HouseEditView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\IViewForm.cs" />
     <Compile Include="Forms\ListSearchView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +85,12 @@
       <DependentUpon>OrderEditView.cs</DependentUpon>
     </Compile>
     <Compile Include="Presenters\CustomerEditPresenter.cs" />
+    <Compile Include="Presenters\CustomerListPresenter.cs" />
+    <Compile Include="Presenters\DashboardPresenter.cs" />
+    <Compile Include="Presenters\HouseEditPresenter.cs" />
+    <Compile Include="Presenters\HouseListPresenter.cs" />
+    <Compile Include="Presenters\OrderListPresenter.cs" />
+    <Compile Include="Presenters\Presenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\CustomerEditView.resx">

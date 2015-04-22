@@ -42,9 +42,7 @@
             this.searchBox.Size = new System.Drawing.Size(322, 20);
             this.searchBox.TabIndex = 0;
             this.searchBox.Text = "Search";
-            this.searchBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.searchBox_mouseClick);
             this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
-            this.searchBox.Enter += new System.EventHandler(this.searchBox_Enter);
             // 
             // dgv_customers
             // 

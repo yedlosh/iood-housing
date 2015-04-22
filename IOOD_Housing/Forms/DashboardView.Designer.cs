@@ -75,8 +75,9 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // customersToolStripMenuItem
             // 
@@ -92,12 +93,14 @@
             this.newCustomerToolStripMenuItem.Name = "newCustomerToolStripMenuItem";
             this.newCustomerToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.newCustomerToolStripMenuItem.Text = "New Customer";
+            this.newCustomerToolStripMenuItem.Click += new System.EventHandler(this.newCustomerToolStripMenuItem_Click);
             // 
             // searchCustomersToolStripMenuItem
             // 
             this.searchCustomersToolStripMenuItem.Name = "searchCustomersToolStripMenuItem";
             this.searchCustomersToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.searchCustomersToolStripMenuItem.Text = "Search Customers";
+            this.searchCustomersToolStripMenuItem.Click += new System.EventHandler(this.searchCustomersToolStripMenuItem_Click);
             // 
             // ordersToolStripMenuItem
             // 
@@ -110,8 +113,9 @@
             // searchOrdersToolStripMenuItem
             // 
             this.searchOrdersToolStripMenuItem.Name = "searchOrdersToolStripMenuItem";
-            this.searchOrdersToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.searchOrdersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.searchOrdersToolStripMenuItem.Text = "Search Orders";
+            this.searchOrdersToolStripMenuItem.Click += new System.EventHandler(this.searchOrdersToolStripMenuItem_Click);
             // 
             // housesToolStripMenuItem
             // 
@@ -125,14 +129,16 @@
             // newHouseToolStripMenuItem
             // 
             this.newHouseToolStripMenuItem.Name = "newHouseToolStripMenuItem";
-            this.newHouseToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.newHouseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newHouseToolStripMenuItem.Text = "New House";
+            this.newHouseToolStripMenuItem.Click += new System.EventHandler(this.newHouseToolStripMenuItem_Click);
             // 
             // searchHousesToolStripMenuItem
             // 
             this.searchHousesToolStripMenuItem.Name = "searchHousesToolStripMenuItem";
-            this.searchHousesToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.searchHousesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.searchHousesToolStripMenuItem.Text = "Search Houses";
+            this.searchHousesToolStripMenuItem.Click += new System.EventHandler(this.searchHousesToolStripMenuItem_Click);
             // 
             // dgv_queueDash
             // 

@@ -9,11 +9,25 @@ using System.Windows.Forms;
 
 namespace IOOD_Housing.Forms
 {
-    public partial class HouseEditView : Form
+    public interface IHouseEditView : IViewForm
+    { 
+    
+    }
+    public partial class HouseEditView : Form, IHouseEditView
     {
         public HouseEditView()
         {
             InitializeComponent();
+        }
+
+        void IViewForm.Close()
+        {
+            this.Close();
+        }
+
+        void IViewForm.Show()
+        {
+            this.Show();
         }
     }
 }

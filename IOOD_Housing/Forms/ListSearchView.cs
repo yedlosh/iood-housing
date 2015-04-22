@@ -9,21 +9,31 @@ using System.Windows.Forms;
 
 namespace IOOD_Housing.Forms
 {
-    public partial class ListSearchView : Form
+    public interface IListSearchView : IViewForm
+    { 
+        void SetListTitle(string title);
+    }
+
+    public partial class ListSearchView : Form, IListSearchView
     {
         public ListSearchView()
         {
             InitializeComponent();
         }
 
-        private void searchBox_mouseClick(object sender, MouseEventArgs e)
+        void IViewForm.Close()
         {
-
+            this.Close();
         }
 
-        private void searchBox_Enter(object sender, EventArgs e)
+        void IViewForm.Show()
         {
+            this.Show();
+        }
 
+        public void SetListTitle(string title)
+        {
+            this.Text = title;
         }
 
         private void searchBox_TextChanged(object sender, EventArgs e)

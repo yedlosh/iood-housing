@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -10,59 +9,132 @@ using System.Windows.Forms;
 
 namespace IOOD_Housing.Forms
 {
-    public partial class CustomerEditView : Form
+    public interface ICustomerEditView : IViewForm
     {
-        
+        //event Action NameValidating;
+
+        string NameText { get; set; }
+        string AddressText { get; set; }
+        string CityText { get; set; }
+        string PostcodeText { get; set; }
+        string EmailText { get; set; }
+        string PhoneText { get; set; }
+
+        event Action SaveEvent;
+        event Action CancelEvent;
+    }
+
+    public partial class CustomerEditView : Form, ICustomerEditView
+    {
+
+        public event Action SaveEvent;
+        public event Action CancelEvent;
+
         public CustomerEditView()
         {
             InitializeComponent();
-            this.textBox1.Tag = false;
-            this.textBox2.Tag = false;
-            this.textBox3.Tag = false;
-            this.btn_save.Enabled = false;
-            this.textBox1.Validating += new CancelEventHandler(textBoxEmpty_Validating);
-            this.textBox2.Validating += new CancelEventHandler(textBoxEmpty_Validating);
-            this.textBox3.Validating += new CancelEventHandler(textBoxEmpty_Validating);
-            this.textBox4.Validating += new CancelEventHandler(textBoxEmpty_Validating);
-            this.textBox5.Validating += new CancelEventHandler(textBoxEmpty_Validating);
-            this.textBox6.Validating += new CancelEventHandler(textBoxEmpty_Validating);
+            //this.txt_name.Tag = false;
+            //this.txt_name.Validating += new CancelEventHandler(textBoxEmpty_Validating);
+
         }
 
-        void textBoxEmpty_Validating(object sender, CancelEventArgs e)
+        void IViewForm.Close()
         {
-            TextBox tb = (TextBox)sender;
-            if (tb.Text.Length == 0)
-            {
-                tb.BackColor = Color.Red;
-                tb.Tag = false;
-            }
-            else
-            {
-                tb.BackColor = System.Drawing.SystemColors.Window;
-                tb.Tag = true;
-            }
-            ValidateOK();
+            this.Close();
         }
 
-        private void ValidateOK()
+        void IViewForm.Show()
         {
-            this.btn_save.Enabled = ((bool)(this.textBox1.Tag) &&
-                                    (bool)(this.textBox2.Tag) &&
-                                    (bool)(this.textBox3.Tag)&&
-                                    (bool)(this.textBox4.Tag)&&
-                                    (bool)(this.textBox5.Tag)&&
-                                    (bool)(this.textBox6.Tag));
+            this.Show();
         }
-
+       
         private void btn_save_Click(object sender, EventArgs e)
         {
-            Presenters.saveButtonEvent();
+            if (SaveEvent != null)
+            {
+                SaveEvent();
+            }
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)
         {
-            Presenters.cancelButtonEvent();
+            if (CancelEvent != null)
+            {
+                CancelEvent();
+            }
         }
 
+
+        public string NameText
+        {
+            get
+            {
+                return txt_name.Text;
+            }
+            set
+            {
+                txt_name.Text = value;
+            }
+        }
+
+        public string AddressText
+        {
+            get
+            {
+                return txt_address.Text;
+            }
+            set
+            {
+                txt_address.Text = value;
+            }
+        }
+
+        public string CityText
+        {
+            get
+            {
+                return txt_city.Text;
+            }
+            set
+            {
+                txt_city.Text = value;
+            }
+        }
+
+        public string PostcodeText
+        {
+            get
+            {
+                return txt_postcode.Text;
+            }
+            set
+            {
+                txt_postcode.Text = value;
+            }
+        }
+
+        public string EmailText
+        {
+            get
+            {
+                return txt_email.Text;
+            }
+            set
+            {
+                txt_email.Text = value;
+            }
+        }
+
+        public string PhoneText
+        {
+            get
+            {
+                return txt_phone.Text;
+            }
+            set
+            {
+                txt_phone.Text = value;
+            }
+        }
     }
 }
