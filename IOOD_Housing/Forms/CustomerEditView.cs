@@ -136,5 +136,10 @@ namespace IOOD_Housing.Forms
                 txt_phone.Text = value;
             }
         }
+
+        private void CustomerEditView_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

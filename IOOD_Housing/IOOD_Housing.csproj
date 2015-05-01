@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyConn.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Forms\CustomerEditView.cs">
       <SubType>Form</SubType>

@@ -14,6 +14,7 @@ namespace IOOD_Housing.Presenters
     {
 
         OleDbConnection dbCon;
+        OleDbDataAdapter da;
         private ICustomerEditView customerEditView;
 
         public CustomerEditPresenter(ICustomerEditView view, Customer customer = null) 
@@ -35,11 +36,31 @@ namespace IOOD_Housing.Presenters
 
         public void saveButtonEvent()
         {
-            if (ValidateInput()) { 
+            if (ValidateInput())
+            {
                 //TODO Save to db
+                dbCon.Open();
+
+                string sql = "insert into customers()values()";
+
+                OleDbCommand com = new OleDbCommand(sql, dbCon);
+                com.ExecuteNonQuery();
+                int i = com.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    MessageBox.Show("your data has been saved!", "hint", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("error!", "hint", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
                 // customerEditView.Close();
-            } 
+            }
+            else
+            {
+                MessageBox.Show("invalid input");
+            }
         }
 
         public void cancelButtonEvent()
