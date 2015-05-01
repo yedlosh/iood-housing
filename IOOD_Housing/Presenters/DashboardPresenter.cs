@@ -5,6 +5,7 @@ using System.Text;
 using System.Data.OleDb;
 using System.Windows.Forms;
 using IOOD_Housing.Forms;
+using IOOD_Housing.DB;
 
 namespace IOOD_Housing.Presenters
 {
@@ -16,6 +17,9 @@ namespace IOOD_Housing.Presenters
         {
             dashboardView = view;
             dashboardView.MenuStripEvent += OnMenuItemClick;
+
+            CustomerDataSource dataSource = CustomerDataSource.getInstance();
+            dashboardView.setDataGrid(dataSource.getCustomerDataset());
         }
 
         private void OnMenuItemClick(DashboardView.MenuItems item){

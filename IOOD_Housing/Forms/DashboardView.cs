@@ -13,6 +13,7 @@ namespace IOOD_Housing
     public interface IDashboardView : IViewForm 
     {
         event Action<DashboardView.MenuItems> MenuStripEvent;
+        void setDataGrid(DataSet data);
     }
 
     public partial class DashboardView : Form, IDashboardView
@@ -47,6 +48,16 @@ namespace IOOD_Housing
         void IViewForm.Show()
         {
             this.Show();
+        }
+
+        public void setDataGrid(DataSet data)
+        {
+            dgv_queueDash.DataSource = data.Tables[0];
+
+            for (int x = 0; x < dgv_queueDash.ColumnCount; x++)
+            {
+                dgv_queueDash.Columns[x].ReadOnly = true;
+            }
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -95,6 +106,6 @@ namespace IOOD_Housing
             {
                 MenuStripEvent(MenuItems.SearchHouses);
             }
-        }   
+        }
     }
 }
