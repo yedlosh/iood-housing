@@ -18,8 +18,8 @@ namespace IOOD_Housing.Presenters
             dashboardView = view;
             dashboardView.MenuStripEvent += OnMenuItemClick;
 
-            CustomerDataSource dataSource = CustomerDataSource.getInstance();
-            dashboardView.setDataGrid(dataSource.getCustomerDataset());
+            DataSource dataSource = DataManager.getInstance().getDataSource(DataManager.Query.Schedule);
+            dashboardView.setDataGrid(dataSource.getDataset());
         }
 
         private void OnMenuItemClick(DashboardView.MenuItems item){

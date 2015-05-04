@@ -60,7 +60,7 @@
             this.housesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(482, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(568, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -75,7 +75,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -113,7 +113,7 @@
             // searchOrdersToolStripMenuItem
             // 
             this.searchOrdersToolStripMenuItem.Name = "searchOrdersToolStripMenuItem";
-            this.searchOrdersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.searchOrdersToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.searchOrdersToolStripMenuItem.Text = "Search Orders";
             this.searchOrdersToolStripMenuItem.Click += new System.EventHandler(this.searchOrdersToolStripMenuItem_Click);
             // 
@@ -129,14 +129,14 @@
             // newHouseToolStripMenuItem
             // 
             this.newHouseToolStripMenuItem.Name = "newHouseToolStripMenuItem";
-            this.newHouseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newHouseToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.newHouseToolStripMenuItem.Text = "New House";
             this.newHouseToolStripMenuItem.Click += new System.EventHandler(this.newHouseToolStripMenuItem_Click);
             // 
             // searchHousesToolStripMenuItem
             // 
             this.searchHousesToolStripMenuItem.Name = "searchHousesToolStripMenuItem";
-            this.searchHousesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.searchHousesToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.searchHousesToolStripMenuItem.Text = "Search Houses";
             this.searchHousesToolStripMenuItem.Click += new System.EventHandler(this.searchHousesToolStripMenuItem_Click);
             // 
@@ -148,7 +148,7 @@
             this.dgv_queueDash.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_queueDash.Location = new System.Drawing.Point(13, 28);
             this.dgv_queueDash.Name = "dgv_queueDash";
-            this.dgv_queueDash.Size = new System.Drawing.Size(457, 303);
+            this.dgv_queueDash.Size = new System.Drawing.Size(543, 303);
             this.dgv_queueDash.TabIndex = 1;
             // 
             // lbl_factoryStatus
@@ -175,7 +175,7 @@
             // 
             this.lbl_orders.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_orders.AutoSize = true;
-            this.lbl_orders.Location = new System.Drawing.Point(379, 341);
+            this.lbl_orders.Location = new System.Drawing.Point(465, 341);
             this.lbl_orders.Name = "lbl_orders";
             this.lbl_orders.Size = new System.Drawing.Size(38, 13);
             this.lbl_orders.TabIndex = 4;
@@ -185,7 +185,7 @@
             // 
             this.lbl_orders_scheduled.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_orders_scheduled.AutoSize = true;
-            this.lbl_orders_scheduled.Location = new System.Drawing.Point(337, 358);
+            this.lbl_orders_scheduled.Location = new System.Drawing.Point(423, 358);
             this.lbl_orders_scheduled.Name = "lbl_orders_scheduled";
             this.lbl_orders_scheduled.Size = new System.Drawing.Size(61, 13);
             this.lbl_orders_scheduled.TabIndex = 5;
@@ -195,7 +195,7 @@
             // 
             this.lbl_orders_until.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_orders_until.AutoSize = true;
-            this.lbl_orders_until.Location = new System.Drawing.Point(367, 371);
+            this.lbl_orders_until.Location = new System.Drawing.Point(453, 371);
             this.lbl_orders_until.Name = "lbl_orders_until";
             this.lbl_orders_until.Size = new System.Drawing.Size(31, 13);
             this.lbl_orders_until.TabIndex = 6;
@@ -205,7 +205,7 @@
             // 
             this.lbl_orders_scheduled_out.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_orders_scheduled_out.AutoSize = true;
-            this.lbl_orders_scheduled_out.Location = new System.Drawing.Point(405, 358);
+            this.lbl_orders_scheduled_out.Location = new System.Drawing.Point(491, 358);
             this.lbl_orders_scheduled_out.Name = "lbl_orders_scheduled_out";
             this.lbl_orders_scheduled_out.Size = new System.Drawing.Size(13, 13);
             this.lbl_orders_scheduled_out.TabIndex = 7;
@@ -215,7 +215,7 @@
             // 
             this.lbl_orders_until_out.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_orders_until_out.AutoSize = true;
-            this.lbl_orders_until_out.Location = new System.Drawing.Point(405, 371);
+            this.lbl_orders_until_out.Location = new System.Drawing.Point(491, 371);
             this.lbl_orders_until_out.Name = "lbl_orders_until_out";
             this.lbl_orders_until_out.Size = new System.Drawing.Size(65, 13);
             this.lbl_orders_until_out.TabIndex = 8;
@@ -225,7 +225,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(482, 396);
+            this.ClientSize = new System.Drawing.Size(568, 396);
             this.Controls.Add(this.lbl_orders_until_out);
             this.Controls.Add(this.lbl_orders_scheduled_out);
             this.Controls.Add(this.lbl_orders_until);

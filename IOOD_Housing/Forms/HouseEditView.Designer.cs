@@ -31,10 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.grp_housestats = new System.Windows.Forms.GroupBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lbl_house_area = new System.Windows.Forms.Label();
             this.lbl_house_receptions = new System.Windows.Forms.Label();
             this.lbl_house_bathrooms = new System.Windows.Forms.Label();
@@ -46,8 +42,16 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
+            this.num_bedrooms = new System.Windows.Forms.NumericUpDown();
+            this.num_bathrooms = new System.Windows.Forms.NumericUpDown();
+            this.num_receptions = new System.Windows.Forms.NumericUpDown();
+            this.num_area = new System.Windows.Forms.NumericUpDown();
             this.grp_housestats.SuspendLayout();
             this.grp_components.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num_bedrooms)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_bathrooms)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_receptions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_area)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -68,10 +72,10 @@
             // 
             // grp_housestats
             // 
-            this.grp_housestats.Controls.Add(this.comboBox4);
-            this.grp_housestats.Controls.Add(this.comboBox3);
-            this.grp_housestats.Controls.Add(this.comboBox2);
-            this.grp_housestats.Controls.Add(this.comboBox1);
+            this.grp_housestats.Controls.Add(this.num_area);
+            this.grp_housestats.Controls.Add(this.num_receptions);
+            this.grp_housestats.Controls.Add(this.num_bathrooms);
+            this.grp_housestats.Controls.Add(this.num_bedrooms);
             this.grp_housestats.Controls.Add(this.lbl_house_area);
             this.grp_housestats.Controls.Add(this.lbl_house_receptions);
             this.grp_housestats.Controls.Add(this.lbl_house_bathrooms);
@@ -81,38 +85,6 @@
             this.grp_housestats.Size = new System.Drawing.Size(271, 79);
             this.grp_housestats.TabIndex = 5;
             this.grp_housestats.TabStop = false;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(205, 45);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(60, 21);
-            this.comboBox4.TabIndex = 7;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(205, 17);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(60, 21);
-            this.comboBox3.TabIndex = 6;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(71, 47);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(60, 21);
-            this.comboBox2.TabIndex = 5;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(71, 20);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(60, 21);
-            this.comboBox1.TabIndex = 4;
             // 
             // lbl_house_area
             // 
@@ -195,7 +167,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.40359F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.59641F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 38);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
@@ -221,6 +193,34 @@
             this.btn_save.Text = "Save";
             this.btn_save.UseVisualStyleBackColor = true;
             // 
+            // num_bedrooms
+            // 
+            this.num_bedrooms.Location = new System.Drawing.Point(71, 17);
+            this.num_bedrooms.Name = "num_bedrooms";
+            this.num_bedrooms.Size = new System.Drawing.Size(60, 20);
+            this.num_bedrooms.TabIndex = 8;
+            // 
+            // num_bathrooms
+            // 
+            this.num_bathrooms.Location = new System.Drawing.Point(71, 48);
+            this.num_bathrooms.Name = "num_bathrooms";
+            this.num_bathrooms.Size = new System.Drawing.Size(60, 20);
+            this.num_bathrooms.TabIndex = 9;
+            // 
+            // num_receptions
+            // 
+            this.num_receptions.Location = new System.Drawing.Point(205, 17);
+            this.num_receptions.Name = "num_receptions";
+            this.num_receptions.Size = new System.Drawing.Size(60, 20);
+            this.num_receptions.TabIndex = 10;
+            // 
+            // num_area
+            // 
+            this.num_area.Location = new System.Drawing.Point(205, 48);
+            this.num_area.Name = "num_area";
+            this.num_area.Size = new System.Drawing.Size(60, 20);
+            this.num_area.TabIndex = 11;
+            // 
             // HouseEditView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,6 +238,10 @@
             this.grp_housestats.PerformLayout();
             this.grp_components.ResumeLayout(false);
             this.grp_components.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num_bedrooms)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_bathrooms)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_receptions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_area)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,10 +252,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox grp_housestats;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label lbl_house_area;
         private System.Windows.Forms.Label lbl_house_receptions;
         private System.Windows.Forms.Label lbl_house_bathrooms;
@@ -263,5 +263,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Button btn_save;
+        private System.Windows.Forms.NumericUpDown num_bathrooms;
+        private System.Windows.Forms.NumericUpDown num_bedrooms;
+        private System.Windows.Forms.NumericUpDown num_area;
+        private System.Windows.Forms.NumericUpDown num_receptions;
     }
 }

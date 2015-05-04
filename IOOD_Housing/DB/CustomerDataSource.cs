@@ -7,40 +7,38 @@ using System.Text;
 
 namespace IOOD_Housing.DB
 {
-    class CustomerDataSource
+    class CustomerDataSource : DataSource
     {
-        private static CustomerDataSource instance;
-        private String conString = Properties.Settings.Default.connectionString;
-        private OleDbConnection connection;
 
-        private OleDbDataAdapter daCustomers;
-        private DataSet dsCustomers;
+        public CustomerDataSource(string query) : base(query){}
 
-        private CustomerDataSource() 
-        {
-            connection = new OleDbConnection(conString);
-            connection.Open();
-            string studentsTable = "Select * from Customer;";
-            daCustomers = new OleDbDataAdapter(studentsTable, connection);
-            dsCustomers = new DataSet("Customers");
-            daCustomers.Fill(dsCustomers);
+
+        public void addCustomer(Customer customer) {
+            DataTable customerTable = base.dataSet.Tables[0];
+            DataRow custRow = customerTable.NewRow();
+            customerToRow(customer, custRow);
+            customerTable.Rows.Add(custRow);
+
+            updateSource();
         }
 
-        public static CustomerDataSource getInstance(){
-            if(instance == null)
-            {
-                instance = new CustomerDataSource();
-            }
-            return instance;
+        public void updateCustomer(Customer customer) { 
+        
         }
 
-        public DataSet getCustomerDataset() {
-            return dsCustomers;
+        public void deleteCustomer(Customer customer) { 
+        
         }
 
-        public void updateCustomerDataset(string tableName) {
-            daCustomers.Update(dsCustomers, tableName);
-        }
+        private DataRow customerToRow(Customer customer, DataRow row) {           
+            row["custName"] = customer.Name;
+            row["address"] = customer.Address;
+            row["city"] = customer.City;
+            row["postcode"] = customer.Postcode;
+            row["email"] = customer.Email;
+            row["phone"] = customer.Phone;
 
+            return row;
+        }
     }
 }

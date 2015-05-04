@@ -1,4 +1,5 @@
-﻿using IOOD_Housing.Forms;
+﻿using IOOD_Housing.DB;
+using IOOD_Housing.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,9 @@ namespace IOOD_Housing.Presenters
         {
             listSearchView = view;
             listSearchView.SetListTitle("Search Customers");
+
+            DataSource dataSource = DataManager.getInstance().getDataSource(DataManager.Query.Customers);
+            listSearchView.setDataGrid(dataSource.getDataset());
         }
 
 

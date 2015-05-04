@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.searchBox = new System.Windows.Forms.TextBox();
-            this.dgv_customers = new System.Windows.Forms.DataGridView();
+            this.txt_searchBox = new System.Windows.Forms.TextBox();
+            this.dgv_list = new System.Windows.Forms.DataGridView();
             this.lbl_total = new System.Windows.Forms.Label();
             this.lbl_out_total = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_customers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_list)).BeginInit();
             this.SuspendLayout();
             // 
-            // searchBox
+            // txt_searchBox
             // 
-            this.searchBox.Location = new System.Drawing.Point(13, 13);
-            this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(322, 20);
-            this.searchBox.TabIndex = 0;
-            this.searchBox.Text = "Search";
-            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
+            this.txt_searchBox.Location = new System.Drawing.Point(13, 13);
+            this.txt_searchBox.Name = "txt_searchBox";
+            this.txt_searchBox.Size = new System.Drawing.Size(322, 20);
+            this.txt_searchBox.TabIndex = 0;
+            this.txt_searchBox.Text = "Search";
+            this.txt_searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
             // 
-            // dgv_customers
+            // dgv_list
             // 
-            this.dgv_customers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgv_list.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgv_customers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_customers.Location = new System.Drawing.Point(12, 49);
-            this.dgv_customers.Name = "dgv_customers";
-            this.dgv_customers.Size = new System.Drawing.Size(402, 302);
-            this.dgv_customers.TabIndex = 1;
+            this.dgv_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_list.Location = new System.Drawing.Point(12, 49);
+            this.dgv_list.Name = "dgv_list";
+            this.dgv_list.Size = new System.Drawing.Size(721, 302);
+            this.dgv_list.TabIndex = 1;
             // 
             // lbl_total
             // 
@@ -79,14 +79,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 388);
+            this.ClientSize = new System.Drawing.Size(745, 388);
             this.Controls.Add(this.lbl_out_total);
             this.Controls.Add(this.lbl_total);
-            this.Controls.Add(this.dgv_customers);
-            this.Controls.Add(this.searchBox);
+            this.Controls.Add(this.dgv_list);
+            this.Controls.Add(this.txt_searchBox);
             this.Name = "ListSearchView";
             this.Text = "Search";
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_customers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_list)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -94,8 +94,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox searchBox;
-        private System.Windows.Forms.DataGridView dgv_customers;
+        private System.Windows.Forms.TextBox txt_searchBox;
+        private System.Windows.Forms.DataGridView dgv_list;
         private System.Windows.Forms.Label lbl_total;
         private System.Windows.Forms.Label lbl_out_total;
     }

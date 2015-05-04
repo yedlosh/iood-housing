@@ -59,6 +59,7 @@
             this.txt_name.Name = "txt_name";
             this.txt_name.Size = new System.Drawing.Size(207, 20);
             this.txt_name.TabIndex = 1;
+            this.txt_name.TextChanged += new System.EventHandler(this.txt_name_TextChanged);
             // 
             // lbl_address
             // 
@@ -75,6 +76,7 @@
             this.txt_address.Name = "txt_address";
             this.txt_address.Size = new System.Drawing.Size(207, 20);
             this.txt_address.TabIndex = 3;
+            this.txt_address.TextChanged += new System.EventHandler(this.txt_address_TextChanged);
             // 
             // txt_city
             // 
@@ -82,6 +84,7 @@
             this.txt_city.Name = "txt_city";
             this.txt_city.Size = new System.Drawing.Size(207, 20);
             this.txt_city.TabIndex = 4;
+            this.txt_city.TextChanged += new System.EventHandler(this.txt_city_TextChanged);
             // 
             // lbl_city
             // 
@@ -107,6 +110,7 @@
             this.txt_postcode.Name = "txt_postcode";
             this.txt_postcode.Size = new System.Drawing.Size(100, 20);
             this.txt_postcode.TabIndex = 7;
+            this.txt_postcode.TextChanged += new System.EventHandler(this.txt_postcode_TextChanged);
             // 
             // txt_email
             // 
@@ -114,6 +118,7 @@
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(207, 20);
             this.txt_email.TabIndex = 8;
+            this.txt_email.TextChanged += new System.EventHandler(this.txt_email_TextChanged);
             // 
             // lbl_email
             // 
@@ -130,6 +135,7 @@
             this.txt_phone.Name = "txt_phone";
             this.txt_phone.Size = new System.Drawing.Size(100, 20);
             this.txt_phone.TabIndex = 10;
+            this.txt_phone.TextChanged += new System.EventHandler(this.txt_phone_TextChanged);
             // 
             // lbl_phone
             // 

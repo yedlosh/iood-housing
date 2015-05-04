@@ -6,14 +6,13 @@ using System.Data.OleDb;
 using System.Data;
 using IOOD_Housing.Forms;
 using System.Windows.Forms;
+using IOOD_Housing.DB;
 
 
 namespace IOOD_Housing.Presenters
 {
     class CustomerEditPresenter : Presenter
     {
-
-        OleDbConnection dbCon;
         private ICustomerEditView customerEditView;
 
         public CustomerEditPresenter(ICustomerEditView view, Customer customer = null) 
@@ -22,6 +21,8 @@ namespace IOOD_Housing.Presenters
 
             customerEditView.SaveEvent += saveButtonEvent;
             customerEditView.CancelEvent += cancelButtonEvent;
+
+            customerEditView.FieldChanged += fieldChangedEvent;
 
             if (customer != null) {
                 customerEditView.NameText = customer.Name;
@@ -37,8 +38,11 @@ namespace IOOD_Housing.Presenters
         {
             if (ValidateInput()) { 
                 //TODO Save to db
-
-                // customerEditView.Close();
+                CustomerDataSource dataSource = (CustomerDataSource) DataManager.getInstance().getDataSource(DataManager.Query.Customers);
+                
+                Customer newCustomer = extractCustomerFromView();
+                dataSource.addCustomer(newCustomer);
+                customerEditView.Close();
             } 
         }
 
@@ -49,34 +53,78 @@ namespace IOOD_Housing.Presenters
 
         private bool ValidateInput()
         {
-            return (customerEditView.NameText.Length != 0 &&
-                    customerEditView.AddressText.Length != 0 &&
-                    customerEditView.CityText.Length != 0 &&
-                    customerEditView.PostcodeText.Length != 0 &&
-                    customerEditView.EmailText.Length != 0 &&
-                    customerEditView.PhoneText.Length != 0);
+            bool clean = true;
+
+            if(customerEditView.NameText.Length == 0)
+            {
+                customerEditView.SetFieldError(CustomerEditView.TextField.Name, true);
+                clean = false;
+            }
+            if(customerEditView.AddressText.Length == 0)
+            {
+                customerEditView.SetFieldError(CustomerEditView.TextField.Address, true);
+                clean = false;
+            }
+            if(customerEditView.CityText.Length == 0)
+            {
+                customerEditView.SetFieldError(CustomerEditView.TextField.City, true);
+                clean = false;
+            }
+            if(customerEditView.PostcodeText.Length == 0)
+            {
+                customerEditView.SetFieldError(CustomerEditView.TextField.Postcode, true);
+                clean = false;
+            }
+            if (customerEditView.EmailText.Length == 0 && customerEditView.PhoneText.Length == 0)
+            {
+                customerEditView.SetFieldError(CustomerEditView.TextField.Email, true);
+                customerEditView.SetFieldError(CustomerEditView.TextField.Phone, true);
+            }
+            if (!clean)
+            {
+                MessageBox.Show("Not all fields have been filled!", "Customer Form",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else if (customerEditView.EmailText.Length == 0 && customerEditView.PhoneText.Length == 0)
+            {
+                MessageBox.Show("Please enter phone or email contact!", "Customer Form",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clean = false;
+            }
+
+            return clean;
         }
 
-        //void textBoxEmpty_Validating(object sender, CancelEventArgs e)
-        //{
-        //    TextBox tb = (TextBox)sender;
-        //    if (tb.Text.Length == 0)
-        //    {
-        //        tb.BackColor = Color.Red;
-        //        tb.Tag = false;
-        //    }
-        //    else
-        //    {
-        //        tb.BackColor = System.Drawing.SystemColors.Window;
-        //        tb.Tag = true;
-        //    }
-        //    ValidateOK();
-        //}
+        private void fieldChangedEvent(CustomerEditView.TextField field){
+
+            customerEditView.SetFieldError(field, false);
+
+            if (field == CustomerEditView.TextField.Phone) 
+            {
+                customerEditView.SetFieldError(CustomerEditView.TextField.Email, false);
+            }
+            else if (field == CustomerEditView.TextField.Email)
+            {
+                customerEditView.SetFieldError(CustomerEditView.TextField.Phone, false);
+            }
+        }
 
 
         public void Present()
         {
             customerEditView.Show();
+        }
+
+        private Customer extractCustomerFromView(){
+
+            Customer customer = new Customer();
+            customer.Name = customerEditView.NameText;
+            customer.Address = customerEditView.AddressText;
+            customer.City = customerEditView.CityText;
+            customer.Postcode = customerEditView.PostcodeText;
+            customer.Email = customerEditView.EmailText;
+            customer.Phone = customerEditView.PhoneText;
+
+            return customer;
         }
     }
 }
