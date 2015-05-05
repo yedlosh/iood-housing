@@ -6,20 +6,25 @@ using System.Data.OleDb;
 using System.Windows.Forms;
 using IOOD_Housing.Forms;
 using IOOD_Housing.DB;
+using System.Data;
 
 namespace IOOD_Housing.Presenters
 {
     public class DashboardPresenter
     {
         public IDashboardView dashboardView;
+        private DataSource dataSource;
 
         public DashboardPresenter(IDashboardView view) 
         {
             dashboardView = view;
             dashboardView.MenuStripEvent += OnMenuItemClick;
 
-            DataSource dataSource = DataManager.getInstance().getDataSource(DataManager.Query.Schedule);
+            dataSource = DataManager.getInstance().getDataSource(DataManager.Query.Schedule);
             dashboardView.setDataGrid(dataSource.getDataset());
+
+            dataSource.getDataset().Tables[0].RowChanged += dataRowChanged;
+            updateOrderStatus();
         }
 
         private void OnMenuItemClick(DashboardView.MenuItems item){
@@ -51,6 +56,19 @@ namespace IOOD_Housing.Presenters
                 default:
                     throw new ArgumentException("DashboardPresenter: Unknown menu item selected!");
             }
+        }
+
+        private void dataRowChanged(Object sender, DataRowChangeEventArgs e) 
+        {
+            updateOrderStatus();
+        }
+        private void updateOrderStatus()
+        {
+            DataRowCollection rows = dataSource.getDataset().Tables[0].Rows;
+            dashboardView.OrdersCountLabel = rows.Count.ToString();
+
+            DateTime endDate = DateTime.Parse(rows[rows.Count - 1]["endDate"].ToString());
+            dashboardView.OrdersEndDateLabel = endDate.ToString("MM/dd/yyyy");
         }
     }
 }

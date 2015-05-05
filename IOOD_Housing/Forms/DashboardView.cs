@@ -14,6 +14,9 @@ namespace IOOD_Housing
     {
         event Action<DashboardView.MenuItems> MenuStripEvent;
         void setDataGrid(DataSet data);
+
+        string OrdersCountLabel { get; set; }
+        string OrdersEndDateLabel { get; set; }
     }
 
     public partial class DashboardView : Form, IDashboardView
@@ -105,6 +108,31 @@ namespace IOOD_Housing
             if (MenuStripEvent != null)
             {
                 MenuStripEvent(MenuItems.SearchHouses);
+            }
+        }
+
+
+        public string OrdersCountLabel
+        {
+            get
+            {
+                return lbl_orders_scheduled_out.Text;
+            }
+            set
+            {
+                lbl_orders_scheduled_out.Text = value;
+            }
+        }
+
+        public string OrdersEndDateLabel
+        {
+            get
+            {
+                return lbl_orders_until_out.Text;
+            }
+            set
+            {
+                lbl_orders_until_out.Text = value;
             }
         }
     }

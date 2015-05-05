@@ -13,11 +13,24 @@ namespace IOOD_Housing.Presenters
         public HouseEditPresenter(IHouseEditView view)
         {
             houseEditView = view;
+
+            houseEditView.SaveEvent += saveButtonEvent;
+            houseEditView.CancelEvent += cancelButtonEvent;
         }
 
         public void Present()
         {
             houseEditView.Show();
+        }
+
+        public void saveButtonEvent()
+        {
+
+        }
+
+        public void cancelButtonEvent()
+        {
+            houseEditView.Close();
         }
     }
 }

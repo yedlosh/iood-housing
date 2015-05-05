@@ -11,8 +11,6 @@ namespace IOOD_Housing.Forms
 {
     public interface ICustomerEditView : IViewForm
     {
-        //event Action NameValidating;
-
         string NameText { get; set; }
         string AddressText { get; set; }
         string CityText { get; set; }
@@ -49,8 +47,6 @@ namespace IOOD_Housing.Forms
         public CustomerEditView()
         {
             InitializeComponent();
-            //this.txt_name.Tag = false;
-            //this.txt_name.Validating += new CancelEventHandler(textBoxEmpty_Validating);
 
             fieldDict = new Dictionary<TextField, TextBox>()
             {

@@ -26,8 +26,8 @@ namespace IOOD_Housing.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\\Documents\\_IOOD\\iood-housing\\IOO" +
-            "D_Housing\\Housing.accdb;Persist Security Info=False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\Housing.accdb;Persi" +
+            "st Security Info=False")]
         public string connectionString {
             get {
                 return ((string)(this["connectionString"]));

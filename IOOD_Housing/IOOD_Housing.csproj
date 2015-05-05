@@ -50,6 +50,12 @@
     <Compile Include="DB\DataManager.cs" />
     <Compile Include="DB\DataSource.cs" />
     <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Forms\CustomerDetailView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomerDetailView.Designer.cs">
+      <DependentUpon>CustomerDetailView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CustomerEditView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,7 @@
     <Compile Include="Forms\OrderEditView.Designer.cs">
       <DependentUpon>OrderEditView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presenters\CustomerDetailPresenter.cs" />
     <Compile Include="Presenters\CustomerEditPresenter.cs" />
     <Compile Include="Presenters\CustomerListPresenter.cs" />
     <Compile Include="Presenters\DashboardPresenter.cs" />
@@ -96,6 +103,9 @@
     <Compile Include="Presenters\Presenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\CustomerDetailView.resx">
+      <DependentUpon>CustomerDetailView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomerEditView.resx">
       <DependentUpon>CustomerEditView.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,7 +145,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Housing.accdb" />
+    <Content Include="Housing.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
