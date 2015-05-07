@@ -24,12 +24,14 @@ namespace IOOD_Housing.Forms
 
         event Action SaveEvent;
         event Action CancelEvent;
+        event Action FormClosedEvent;
     }
 
     public partial class CustomerEditView : Form, ICustomerEditView
     {
         public event Action SaveEvent;
         public event Action CancelEvent;
+        public event Action FormClosedEvent;
 
         public event Action<CustomerEditView.TextField> FieldChanged;
 
@@ -62,6 +64,11 @@ namespace IOOD_Housing.Forms
         void IViewForm.Close()
         {
             this.Close();
+        }
+
+        void IViewForm.Hide()
+        {
+            this.Hide();
         }
 
         void IViewForm.Show()
@@ -220,6 +227,14 @@ namespace IOOD_Housing.Forms
             {
                 FieldChanged(TextField.Phone);
             }
-        }  
+        }
+
+        private void CustomerEditView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (FormClosedEvent != null)
+            {
+                FormClosedEvent();
+            }
+        }
     }
 }

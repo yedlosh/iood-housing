@@ -31,7 +31,7 @@
             this.txt_searchBox = new System.Windows.Forms.TextBox();
             this.dgv_list = new System.Windows.Forms.DataGridView();
             this.lbl_total = new System.Windows.Forms.Label();
-            this.lbl_out_total = new System.Windows.Forms.Label();
+            this.lbl_total_out = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_list)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,6 +54,8 @@
             this.dgv_list.Name = "dgv_list";
             this.dgv_list.Size = new System.Drawing.Size(721, 302);
             this.dgv_list.TabIndex = 1;
+            this.dgv_list.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_list_CellContentDoubleClick);
+            this.dgv_list.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_list_RowHeaderMouseDoubleClick);
             // 
             // lbl_total
             // 
@@ -65,22 +67,22 @@
             this.lbl_total.TabIndex = 2;
             this.lbl_total.Text = "Total:";
             // 
-            // lbl_out_total
+            // lbl_total_out
             // 
-            this.lbl_out_total.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbl_out_total.AutoSize = true;
-            this.lbl_out_total.Location = new System.Drawing.Point(43, 363);
-            this.lbl_out_total.Name = "lbl_out_total";
-            this.lbl_out_total.Size = new System.Drawing.Size(13, 13);
-            this.lbl_out_total.TabIndex = 3;
-            this.lbl_out_total.Text = "0";
+            this.lbl_total_out.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbl_total_out.AutoSize = true;
+            this.lbl_total_out.Location = new System.Drawing.Point(43, 363);
+            this.lbl_total_out.Name = "lbl_total_out";
+            this.lbl_total_out.Size = new System.Drawing.Size(13, 13);
+            this.lbl_total_out.TabIndex = 3;
+            this.lbl_total_out.Text = "0";
             // 
             // ListSearchView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 388);
-            this.Controls.Add(this.lbl_out_total);
+            this.Controls.Add(this.lbl_total_out);
             this.Controls.Add(this.lbl_total);
             this.Controls.Add(this.dgv_list);
             this.Controls.Add(this.txt_searchBox);
@@ -97,6 +99,6 @@
         private System.Windows.Forms.TextBox txt_searchBox;
         private System.Windows.Forms.DataGridView dgv_list;
         private System.Windows.Forms.Label lbl_total;
-        private System.Windows.Forms.Label lbl_out_total;
+        private System.Windows.Forms.Label lbl_total_out;
     }
 }

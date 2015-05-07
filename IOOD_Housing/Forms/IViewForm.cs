@@ -8,6 +8,7 @@ namespace IOOD_Housing.Forms
     public interface IViewForm
     {
         void Close();
+        void Hide();
         void Show();
     }
 }

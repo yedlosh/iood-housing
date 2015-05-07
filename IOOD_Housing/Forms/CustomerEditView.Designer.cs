@@ -187,6 +187,7 @@
             this.Controls.Add(this.lbl_name);
             this.Name = "CustomerEditView";
             this.Text = "Customer";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CustomerEditView_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

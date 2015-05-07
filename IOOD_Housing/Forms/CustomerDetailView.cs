@@ -17,7 +17,10 @@ namespace IOOD_Housing.Forms
         string PhoneLabel { get; set; }
         string AddressLabel { get; set; }
 
+        void setOrderGrid(Object data);
+
         event Action NewOrderEvent;
+        event Action EditUserEvent;
     }
 
     public partial class CustomerDetailView : Form, ICustomerDetailView
@@ -25,6 +28,7 @@ namespace IOOD_Housing.Forms
 
 
         public event Action NewOrderEvent;
+        public event Action EditUserEvent;
 
         public CustomerDetailView()
         {
@@ -34,6 +38,11 @@ namespace IOOD_Housing.Forms
         void IViewForm.Close()
         {
             this.Close();
+        }
+
+        void IViewForm.Hide()
+        {
+            this.Hide();
         }
 
         void IViewForm.Show()
@@ -98,6 +107,28 @@ namespace IOOD_Housing.Forms
             set
             {
                 lbl_address_out.Text = value;
+            }
+        }
+
+
+        public void setOrderGrid(Object data)
+        {
+            dgv_orders.DataSource = data;
+
+            dgv_orders.AllowUserToDeleteRows = false;
+            dgv_orders.AllowUserToAddRows = false;
+
+            for (int x = 0; x < dgv_orders.ColumnCount; x++)
+            {
+                dgv_orders.Columns[x].ReadOnly = true;
+            }
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (EditUserEvent != null)
+            {
+                EditUserEvent();
             }
         }
     }

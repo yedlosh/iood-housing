@@ -48,6 +48,11 @@ namespace IOOD_Housing
             this.Close();
         }
 
+        void IViewForm.Hide()
+        {
+            this.Hide();
+        }
+
         void IViewForm.Show()
         {
             this.Show();
@@ -56,6 +61,9 @@ namespace IOOD_Housing
         public void setDataGrid(DataSet data)
         {
             dgv_queueDash.DataSource = data.Tables[0];
+
+            dgv_queueDash.AllowUserToDeleteRows = false;
+            dgv_queueDash.AllowUserToAddRows = false;
 
             for (int x = 0; x < dgv_queueDash.ColumnCount; x++)
             {

@@ -14,6 +14,8 @@ namespace IOOD_Housing.Presenters
     class CustomerEditPresenter : Presenter
     {
         private ICustomerEditView customerEditView;
+        private Customer customer;
+        private bool editing = false;
 
         public CustomerEditPresenter(ICustomerEditView view, Customer customer = null) 
         {
@@ -23,6 +25,7 @@ namespace IOOD_Housing.Presenters
             customerEditView.CancelEvent += cancelButtonEvent;
 
             customerEditView.FieldChanged += fieldChangedEvent;
+            customerEditView.FormClosedEvent += formClosedEvent;
 
             if (customer != null) {
                 customerEditView.NameText = customer.Name;
@@ -31,6 +34,8 @@ namespace IOOD_Housing.Presenters
                 customerEditView.PostcodeText = customer.Postcode;
                 customerEditView.EmailText = customer.Email;
                 customerEditView.PhoneText = customer.Phone;
+                this.customer = customer;
+                editing = true;
             }
         }
 
@@ -39,9 +44,18 @@ namespace IOOD_Housing.Presenters
             if (ValidateInput()) { 
                 //TODO Save to db
                 CustomerDataSource dataSource = (CustomerDataSource) DataManager.getInstance().getDataSource(DataManager.Query.Customers);
-                
-                Customer newCustomer = extractCustomerFromView();
-                dataSource.addCustomer(newCustomer);
+
+                if (!editing)
+                {
+                    customer = new Customer();
+                    updateCustomerFromView(customer);
+                    dataSource.addCustomer(customer);
+                }
+                else 
+                {
+                    updateCustomerFromView(customer);
+                    dataSource.updateCustomer(customer);
+                }
                 customerEditView.Close();
             } 
         }
@@ -82,7 +96,7 @@ namespace IOOD_Housing.Presenters
             }
             if (!clean)
             {
-                MessageBox.Show("Not all fields have been filled!", "Customer Form",
+                MessageBox.Show("Please fill all required fields!", "Customer Form",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             } else if (customerEditView.EmailText.Length == 0 && customerEditView.PhoneText.Length == 0)
             {
@@ -108,23 +122,29 @@ namespace IOOD_Housing.Presenters
             }
         }
 
+        private void formClosedEvent() 
+        {
+            if (editing)
+            {
+                var detailpresenter = new CustomerDetailPresenter(new CustomerDetailView(), customer);
+                detailpresenter.Present();
+            }
+        }
+
 
         public void Present()
         {
             customerEditView.Show();
         }
 
-        private Customer extractCustomerFromView(){
+        private void updateCustomerFromView(Customer customer){
 
-            Customer customer = new Customer();
             customer.Name = customerEditView.NameText;
             customer.Address = customerEditView.AddressText;
             customer.City = customerEditView.CityText;
             customer.Postcode = customerEditView.PostcodeText;
             customer.Email = customerEditView.EmailText;
             customer.Phone = customerEditView.PhoneText;
-
-            return customer;
         }
     }
 }

@@ -33,6 +33,11 @@ namespace IOOD_Housing.Forms
             this.Close();
         }
 
+        void IViewForm.Hide()
+        {
+            this.Hide();
+        }
+
         void IViewForm.Show()
         {
             this.Show();

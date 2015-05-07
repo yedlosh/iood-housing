@@ -13,10 +13,14 @@ namespace IOOD_Housing.Forms
     { 
         void SetListTitle(string title);
         void setDataGrid(DataSet data);
+
+        event Action<int> ItemSelected;
     }
 
     public partial class ListSearchView : Form, IListSearchView
     {
+        public event Action<int> ItemSelected;
+
         private DataTable dataTable;
 
         public ListSearchView()
@@ -27,6 +31,11 @@ namespace IOOD_Housing.Forms
         void IViewForm.Close()
         {
             this.Close();
+        }
+
+        void IViewForm.Hide()
+        {
+            this.Hide();
         }
 
         void IViewForm.Show()
@@ -43,12 +52,17 @@ namespace IOOD_Housing.Forms
         {
             dataTable = data.Tables[0];
             dgv_list.DataSource = dataTable;
-            
+
+            dgv_list.AllowUserToDeleteRows = false;
+            dgv_list.AllowUserToAddRows = false;
 
             for (int x = 0; x < dgv_list.ColumnCount; x++)
             {
                 dgv_list.Columns[x].ReadOnly = true;
             }
+
+            dataTable.DefaultView.RowFilter = "";
+            setTotalLabel();
         }
 
         private void searchBox_TextChanged(object sender, EventArgs e)
@@ -62,6 +76,31 @@ namespace IOOD_Housing.Forms
 
             sb.Remove(sb.Length - 3, 3);
             dataTable.DefaultView.RowFilter = sb.ToString();
+            setTotalLabel();
+        }
+
+        private void setTotalLabel() 
+        {
+            lbl_total_out.Text = dataTable.DefaultView.Count.ToString();
+        }
+
+        private void dgv_list_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            itemSelected(Convert.ToInt32(dgv_list.CurrentCell.OwningRow.Cells[0].Value));
+
+        }
+
+        private void dgv_list_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            itemSelected(Convert.ToInt32(dgv_list.SelectedRows[0].Cells[0].Value));
+        }
+
+        private void itemSelected(int id)
+        {
+            if (ItemSelected != null)
+            {
+                ItemSelected(id);
+            }
         }
     }
 }

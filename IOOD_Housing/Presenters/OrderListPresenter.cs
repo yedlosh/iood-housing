@@ -16,7 +16,7 @@ namespace IOOD_Housing.Presenters
             listSearchView = view;
             listSearchView.SetListTitle("Search Orders");
 
-            DataSource dataSource = DataManager.getInstance().getDataSource(DataManager.Query.Orders);
+            DataSource dataSource = DataManager.getInstance().getDataSource(DataManager.Query.OrderList);
             listSearchView.setDataGrid(dataSource.getDataset());
 
         }

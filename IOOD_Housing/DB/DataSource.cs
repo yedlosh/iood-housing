@@ -34,6 +34,8 @@ namespace IOOD_Housing.DB
         public void updateSource() {
             dataAdapter.UpdateCommand = commandBuilder.GetUpdateCommand();
             dataAdapter.Update(dataSet);
+            dataSet.Clear();
+            dataAdapter.Fill(dataSet);
        } 
     }
 }

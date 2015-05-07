@@ -6,7 +6,7 @@ using System.Text;
 namespace IOOD_Housing.DB
 {
     /// <summary>
-    /// This class serves as a factory and pool for DataSource objects.
+    /// This class serves as a pooled factory for DataSource objects.
     /// </summary>
     class DataManager
     {
@@ -19,6 +19,7 @@ namespace IOOD_Housing.DB
             Customers,
             Orders,
             Houses,
+            OrderList,
             Schedule
         }
 
@@ -26,10 +27,17 @@ namespace IOOD_Housing.DB
             {Query.Customers, "Select * from Customers;"},
             {Query.Orders, "Select * from Orders;"},
             {Query.Houses, "Select * from Houses;"},
+            {Query.OrderList, "SELECT Orders.ID, Customers.custName, Houses.houseName, Orders.paid, " +
+                                     "Orders.foundationReady, Orders.planPermission, Orders.contractSigned " +
+                                     "FROM Houses " +
+                                     "INNER JOIN (Customers INNER JOIN Orders ON Customers.[ID] = Orders.[customerID]) " +
+                                     "ON Houses.[ID] = Orders.[houseID];"
+                             },
             {Query.Schedule, "SELECT Schedule.orderID, Schedule.startDate, Schedule.endDate, Houses.houseName, Customers.custName " +
                              "FROM ((Customers INNER JOIN [Orders] ON Customers.[ID] = Orders.[customerID]) " +
                              "INNER JOIN Houses ON Houses.[ID] = Orders.[houseID]) " +
-                             "INNER JOIN Schedule ON Orders.[ID] = Schedule.[orderID];"}
+                             "INNER JOIN Schedule ON Orders.[ID] = Schedule.[orderID];"
+                             }
         };
 
         private DataManager() 
